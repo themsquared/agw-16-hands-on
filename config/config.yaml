@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+frontendPolicies:
+  accessLog:
+    add:
+      model.requested: llm.requestModel
+      model.served: llm.responseModel
+      tokens.input: llm.inputTokens
+      tokens.output: llm.outputTokens
+      cost.total: llm.cost.total
+      cost.rate.input: llm.costRates.input
+      cost.rate.output: llm.costRates.output
+llm:
+  port: 4000
+  policies:
+    localRateLimit:
+    - type: requests
+      maxTokens: 3
+      tokensPerFill: 3
+      fillInterval: 60s
+      key: request.headers["x-api-key"]
+  models:
+  - name: claude
+    provider: anthropic
+    params:
+      model: claude-sonnet-5
+      apiKey: $ANTHROPIC_API_KEY
