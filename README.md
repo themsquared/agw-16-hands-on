@@ -1,5 +1,7 @@
 # agw-16-hands-on
 
+> 📖 **Read the write-up:** [agentgateway v1.6.0: Cost Tracking With No Catalog Config](https://webofmike.com/agentgateway-v16-cost-tracking/)
+
 Two features from [agentgateway v1.6.0](https://github.com/agentgateway/agentgateway/releases/tag/v1.6.0) (GA, 2026-10-02), validated against a live gateway and a real Claude Sonnet 5 backend: automatic cost tracking with zero catalog configuration, and per-key CEL rate limiting.
 
 No Kubernetes, no cluster. One Docker container, one config file, one API key.
